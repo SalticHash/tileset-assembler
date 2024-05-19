@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tileset Assembler • Make</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <section>
+        <h2>Images</h2>
+        {% for name, img in images.items() %}
+            <h2>{{ name }} <a href="{{ img }}" download="{{ name }}">▼</a></h2>
+            <img src="{{ img }}" alt="{{ name }}">
+            <hr>
+        {% endfor %}
+    </section>
+    <section>
+        <h2>Errors</h2>
+        {% for err in errors %}
+            <p>{{ err }}</p>
+        {% endfor %}
+
+        <h2>Missing Tilesets</h2>
+        <ul>
+            {% for tileset in missing_tilesets %}
+                <li>{{ tileset }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+    <hr>
+
+    <p>Go back to: <a href="/">Home</a></p>
+</body>
+</html>
